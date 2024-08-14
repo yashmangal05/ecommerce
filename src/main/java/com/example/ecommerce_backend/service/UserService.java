@@ -5,7 +5,6 @@ import com.example.ecommerce_backend.api.model.RegistrationBody;
 import com.example.ecommerce_backend.exception.UserAlreadyExistsException;
 import com.example.ecommerce_backend.model.LocalUser;
 import com.example.ecommerce_backend.model.dao.LocalUserDAO;
-import org.apache.commons.logging.Log;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
