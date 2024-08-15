@@ -46,6 +46,6 @@ public class AuthenticationController {
 
     @GetMapping("/me")
     public LocalUser getLoggedInUserProfile(@AuthenticationPrincipal LocalUser user){
-        return  user;
+        return user;
     }
 }
