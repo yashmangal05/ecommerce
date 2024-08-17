@@ -45,6 +45,46 @@ public class LocalUser {
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Address> addresses = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OrderBy("id desc")
+    private List<VerificationToken> verificationTokens = new ArrayList<>();
+
+    /** Has the users email been verified? */
+    @Column(name = "email_verified", nullable = false)
+    private Boolean emailVerified = false;
+
+    /**
+     * Is the email verified?
+     * @return True if it is, false otherwise.
+     */
+    public Boolean isEmailVerified() {
+        return emailVerified;
+    }
+
+    /**
+     * Sets the email verified state.
+     * @param emailVerified The verified state.
+     */
+    public void setEmailVerified(Boolean emailVerified) {
+        this.emailVerified = emailVerified;
+    }
+
+    /**
+     * Gets the list of VerificationTokens sent to the user.
+     * @return The list.
+     */
+    public List<VerificationToken> getVerificationTokens() {
+        return verificationTokens;
+    }
+
+    /**
+     * Sets the list of VerificationTokens sent to the user.
+     * @param verificationTokens The list.
+     */
+    public void setVerificationTokens(List<VerificationToken> verificationTokens) {
+        this.verificationTokens = verificationTokens;
+    }
+
     /**
      * Gets the addresses.
      * @return The addresses.
