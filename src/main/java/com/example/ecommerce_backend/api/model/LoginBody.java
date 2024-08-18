@@ -12,11 +12,19 @@ public class LoginBody {
     @NotBlank
     private String password;
 
-    public String getUsername() {
+    public @NotNull @NotBlank String getUsername() {
         return username;
     }
 
-    public String getPassword() {
+    public void setUsername(@NotNull @NotBlank String username) {
+        this.username = username;
+    }
+
+    public @NotNull @NotBlank String getPassword() {
         return password;
+    }
+
+    public void setPassword(@NotNull @NotBlank String password) {
+        this.password = password;
     }
 }
